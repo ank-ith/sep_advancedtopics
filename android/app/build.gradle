@@ -1,4 +1,5 @@
 plugins {
+    id "com.google.gms.google-services"
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
@@ -27,6 +28,7 @@ android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -49,6 +51,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -59,9 +62,12 @@ android {
         }
     }
 }
-
+dependencies{
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+}
